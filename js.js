@@ -1,17 +1,11 @@
-var count = 1;
-window.onload = function(){
-    var hw = document.getElementById('hw');
-    var sound = new Audio("./sound.mp3");
-    hw.addEventListener('click', function(){
-        sound.play();
-        if (count == 1) {
-            var imgTag = document.getElementById("photo");
-            imgTag.setAttribute("src","./popcat_2.jpeg");
-            count = 2;
-        } else if (count == 2) {
-            var imgTag = document.getElementById("photo");
-            imgTag.setAttribute("src","./popcat_1.jpeg");
-            count = 1;
-        }
-    })
-}
+let count = false;
+
+const imageWrapper = document.getElementById('hw');
+const image = document.getElementById("photo");
+const sound = new Audio("./sound.mp3");
+
+imageWrapper.addEventListener('click', () => {
+    sound.play();
+    image.setAttribute("src", count ? "./popcat_1.jpeg" : "./popcat_2.jpeg");
+    count = !count
+})
